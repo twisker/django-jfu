@@ -1,16 +1,17 @@
-from django.core.context_processors import csrf
-from django.core.urlresolvers import reverse
-from django.template import Library, Context, loader
+from django.template.context_processors import csrf
+from django.urls import reverse
+from django.template import Library, loader
 
 register = Library()
 
-@register.simple_tag( takes_context = True )
+
+@register.simple_tag(takes_context=True)
 def jfu(
         context,
-        template_name = 'jfu/upload_form.html',
-        upload_handler_name = 'jfu_upload',
+        template_name='jfu/upload_form.html',
+        upload_handler_name='jfu_upload',
         *args, **kwargs
-    ):
+):
     """
     Displays a form for uploading files using jQuery File Upload.
 
@@ -21,19 +22,23 @@ def jfu(
     Any additionally supplied positional and keyword arguments are directly
     forwarded to the named custom upload-handling URL.
     """
-    context.update( { 
-        'JQ_OPEN'  : '{%',
-        'JQ_CLOSE' : '%}',
+    context.update({
+        'JQ_OPEN': '{%',
+        'JQ_CLOSE': '%}',
         'upload_handler_url': reverse(
-            upload_handler_name, args = args, kwargs = kwargs
+            upload_handler_name, args=args, kwargs=kwargs
         ),
-    } )
+    })
 
     # Use the request context variable, injected
     # by django.core.context_processors.request,
     # to generate the CSRF token.
-    context.update( csrf( context.get('request') ) )
+    context.update(csrf(context.get('request')))
 
-    t = loader.get_template( template_name )
+    data = {}
+    for d in context:
+        data.update(d)
 
-    return t.render( Context( context ) )
+    t = loader.get_template(template_name)
+
+    return t.render(data)

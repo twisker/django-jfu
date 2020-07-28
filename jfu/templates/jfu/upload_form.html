@@ -98,7 +98,7 @@ Bootstrap CSS Toolkit styles
             {% block UPLOAD_FORM_BUTTON_BAR_ADD %}
             <span class="btn btn-success fileinput-button">
                 <i class="glyphicon glyphicon-plus"></i>
-                <span>Add files...</span>
+                <span>选择文件...</span>
 
                         
                 {% block UPLOAD_FORM_BUTTON_BAR_ADD_FILE_INPUT %}
@@ -137,15 +137,15 @@ Bootstrap CSS Toolkit styles
             {% block UPLOAD_FORM_BUTTON_BAR_CONTROL %}
             <button type="submit" class="btn btn-primary start">
                 <i class="glyphicon glyphicon-upload"></i>
-                <span>Start upload</span>
+                <span>开始上传</span>
             </button>
             <button type="reset" class="btn btn-warning cancel">
                 <i class="glyphicon glyphicon-ban-circle"></i>
-                <span>Cancel upload</span>
+                <span>取消上传</span>
             </button>
             <button type="button" class="btn btn-danger delete">
                 <i class="glyphicon glyphicon-trash"></i>
-                <span>Delete</span>
+                <span>删除</span>
             </button>
             <input type="checkbox" class="toggle">
             {% endblock %}
@@ -248,7 +248,7 @@ Bootstrap CSS Toolkit styles
 
         {% block JS_UPLOAD_TEMPLATE_PROGRESSBAR %}
         <td>
-            <p class="size">Processing...</p>
+            <p class="size">上传中...</p>
             <div class="progress progress-striped active" role="progressbar"
                     aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
                 <div class="progress-bar progress-bar-success" style="width:0%;"></div>
@@ -262,7 +262,7 @@ Bootstrap CSS Toolkit styles
             {{ JQ_OPEN }} if (!i && !o.options.autoUpload) { {{ JQ_CLOSE }}
                 <button class="btn btn-primary start" disabled>
                     <i class="glyphicon glyphicon-upload"></i>
-                    <span>Start</span>
+                    <span>开始</span>
                 </button>
             {{ JQ_OPEN }} } {{ JQ_CLOSE }}
             {% endblock %}
@@ -271,7 +271,7 @@ Bootstrap CSS Toolkit styles
             {{ JQ_OPEN }} if (!i) { {{ JQ_CLOSE }}
                 <button class="btn btn-warning cancel">
                     <i class="glyphicon glyphicon-ban-circle"></i>
-                    <span>Cancel</span>
+                    <span>取消</span>
                 </button>
             {{ JQ_OPEN }} } {{ JQ_CLOSE }}
             {% endblock %}
@@ -349,13 +349,13 @@ Bootstrap CSS Toolkit styles
                             data-xhr-fields='{"withCredentials":true}'{% } 
                         {{ JQ_CLOSE }}>
                     <i class="glyphicon glyphicon-trash"></i>
-                    <span>Delete</span>
+                    <span>删除</span>
                 </button>
                 <input type="checkbox" name="delete" value="1" class="toggle">
             {{ JQ_OPEN }} } else { {{ JQ_CLOSE }}
                 <button class="btn btn-warning cancel">
                     <i class="glyphicon glyphicon-ban-circle"></i>
-                    <span>Cancel</span>
+                    <span>取消</span>
                 </button>
             {{ JQ_OPEN }} } {{ JQ_CLOSE }}
         </td>
@@ -372,7 +372,7 @@ Bootstrap CSS Toolkit styles
 {% comment %}
  jQuery 
 {% endcomment %}
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.12.4/jquery.min.js"></script>
 {% endblock %}
 
 {% block JS_JQUERY_UI_WIDGET %}
